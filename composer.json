@@ -1,0 +1,16 @@
+{
+    "name": "chentao/framework",
+    "description": "getConfig",
+    "authors": [
+        {
+            "name": "Alexchen",
+            "email": "alexchen@abdstem.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+        "psr-4":{
+            "Framework\\":""
+        }
+    }
+}
