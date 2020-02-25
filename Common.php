@@ -7,9 +7,6 @@ namespace Framework;
  */
 class Common
 {
-
-//    const IgnoreSuffix = 'dev';//忽略的后缀
-
     public static $suffix;
 
     public static $path = 'const/';
@@ -63,5 +60,40 @@ class Common
         }
         
         return $config[$key];
+    }
+
+
+
+    public static function getConfig($key)
+    {
+        static $config = array();
+
+        $keyPath = explode('.', $key);
+        $fileName = array_shift($keyPath);
+        if (empty($config[$fileName])) {
+            if (function_exists('base_path')) {
+                $base_path = base_path();
+            } else {
+                $base_path = BASE_PATH;
+            }
+            if (static::$suffix == null) {
+                $file = $base_path . "/".static::$path . $fileName .".php";
+            } else {
+                $file = $base_path . "/".static::$path . $fileName . '.'. static::$suffix .".php";
+            }
+
+            if (file_exists($file)) {
+                $config[$key] =  require($file);
+            } else {
+                return null;
+            }
+        }
+
+        $res = $config[$key];
+        foreach ($keyPath as $k) {
+            $res = $res[$k];
+        }
+
+        return $res;
     }
 }
