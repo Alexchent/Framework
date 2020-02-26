@@ -1,1 +1,1 @@
-<?php/** * Created by PhpStorm. * User: chentao * Date: 2020/2/25 * Time: 9:11 AM */require 'Common.php';define('BASE_PATH', __DIR__);$d = \Framework\Common::getConfig('config.redis');print_r($d);
+<?php/** * Created by PhpStorm. * User: chentao * Date: 2020/2/25 * Time: 9:11 AM */require 'Common.php';define('BASE_PATH', __DIR__."/const");$d = \Framework\Common::getConfig('config.redis');print_r($d);

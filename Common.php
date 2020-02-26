@@ -9,7 +9,7 @@ class Common
 {
     public static $suffix;
 
-    public static $path = 'const/';
+//    public static $path = 'const/';
     /**
      * 获取配置
      * @staticvar array $config
@@ -43,7 +43,7 @@ class Common
             } else {
                 $file = base_path() . "/".static::$path . $key . '.'. static::$suffix .".php";
             }
-//echo $file;die;
+
             if (file_exists($file)) {
                 $config[$key] =  require($file);
             } else {
@@ -77,9 +77,11 @@ class Common
                 $base_path = BASE_PATH;
             }
             if (static::$suffix == null) {
-                $file = $base_path . "/".static::$path . $fileName .".php";
+//                $file = $base_path . "/".static::$path . $fileName .".php";
+                $file = $base_path . "/" . $fileName .".php";
             } else {
-                $file = $base_path . "/".static::$path . $fileName . '.'. static::$suffix .".php";
+//                $file = $base_path . "/".static::$path . $fileName . '.'. static::$suffix .".php";
+                $file = $base_path . "/" . $fileName . '.'. static::$suffix .".php";
             }
 
             if (file_exists($file)) {
