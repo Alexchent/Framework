@@ -32,6 +32,7 @@ class Common
      * @param string $key 配置文件索引键
      * @param string $subKey
      * @param string $thirdKey
+     * @return mixed|null
      */
     public static function getConfigFile($key, $subKey = "", $thirdKey = "")
     {
@@ -43,7 +44,7 @@ class Common
             } else {
                 $file = base_path() . "/".static::$path . $key . '.'. static::$suffix .".php";
             }
-//echo $file;die;
+
             if (file_exists($file)) {
                 $config[$key] =  require($file);
             } else {
